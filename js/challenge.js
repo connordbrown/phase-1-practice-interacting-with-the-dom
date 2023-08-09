@@ -57,7 +57,7 @@ function pauseTimer() {
 
 
 let ctrArr = [];
-let numLikes;
+let numLikes = 0;
 // create list element and append beneath like button
 function timerLike() {
     // grab likes ul element
