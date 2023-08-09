@@ -1,5 +1,6 @@
 
 ///// FORM HANDLING /////
+
 // grab form, create submit event listener
 const form = document.querySelector('form');
 form.addEventListener('submit', function (e) {
@@ -16,6 +17,7 @@ form.addEventListener('submit', function (e) {
 });
 
 ///// COUNTER HANDLING /////
+
 // grab counter element, parse string into integer for counting
 let ctr = document.querySelector('#counter');
 let ctrInt = parseInt(ctr.textContent)
@@ -53,13 +55,26 @@ function pauseTimer() {
     }
 }
 
-// create list element and append beneath like button - don't know how to create like counter - tried many times
+
+let ctrArr = [];
+let numLikes;
+// create list element and append beneath like button
 function timerLike() {
-    let li = document.createElement('li');
-    li.textContent = `${ctrInt} has been liked!`
+    // grab likes ul element
     let likes = document.querySelector('.likes');
-    likes.appendChild(li); 
+    // create li element with ID of ctrInt - ID changes for each li
+    let li = document.createElement('li');
+    li.id = ctrInt;
+    // check whether ctrInt value is new - if not, numlikes+=1, else numLikes = 1
+    if (ctrArr.includes(ctrInt)) {
+        let matchingLi = document.getElementById(ctrInt)
+        matchingLi.textContent = `${ctrInt} was liked ${numLikes+=1} times`
+    } else {
+        li.textContent = `${ctrInt} was liked ${numLikes=1} time`
+        ctrArr.push(ctrInt);
+        likes.appendChild(li);
     }
+ }
 
 
 ///// BUTTON HANDLING /////
