@@ -65,12 +65,12 @@ function timerLike() {
     // create li element with ID of ctrInt - ID changes for each li
     let li = document.createElement('li');
     li.id = ctrInt;
-    // check whether ctrInt value is new - if not, numlikes+=1, else numLikes = 1
+    // check whether ctrInt value is new and update DOM accordingly
     if (ctrArr.includes(ctrInt)) {
-        let matchingLi = document.getElementById(ctrInt)
-        matchingLi.textContent = `${ctrInt} was liked ${numLikes+=1} times`
+        let matchingLi = document.getElementById(ctrInt);
+        matchingLi.textContent = `${ctrInt} was liked ${numLikes+=1} times`;
     } else {
-        li.textContent = `${ctrInt} was liked ${numLikes=1} time`
+        li.textContent = `${ctrInt} was liked ${numLikes=1} time`;
         ctrArr.push(ctrInt);
         likes.appendChild(li);
     }
